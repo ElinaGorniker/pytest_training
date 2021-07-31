@@ -14,3 +14,5 @@ class ProductPageLocators():
     MSG_ADD_TO_BASKET = (By.XPATH, '//*[@id="messages"]/div[1]/div')
     PRICE_IN_SHOP = (By.CSS_SELECTOR, "#content_inner > article > div.row > div.col-sm-6.product_main > p.price_color")
     PRICE_IN_MSG = (By.CSS_SELECTOR, "#messages > div.alert.alert-safe.alert-noicon.alert-info.fade.in > div > p:nth-child(1) > strong")
+    #PROMO_MSG = (By.CSS_SELECTOR, '#messages > div:nth-child(2) > div > strong')
+    PROMO_MSG = (By.CSS_SELECTOR, '#messages > div:nth-child(2) > div')

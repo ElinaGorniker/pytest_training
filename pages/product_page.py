@@ -1,6 +1,7 @@
 from .base_page import BasePage
 from .locators import ProductPageLocators
 import time
+import pytest
 
 class ProductPage(BasePage):
     def add_to_basket(self):
@@ -20,3 +21,9 @@ class ProductPage(BasePage):
         price_in_shop = self.browser.find_element(*ProductPageLocators.PRICE_IN_SHOP).text
         price_in_msg = self.browser.find_element(*ProductPageLocators.PRICE_IN_MSG).text
         assert price_in_shop == price_in_msg, "Price is not equal" 
+    
+    def promo_is_possible(self):
+        promo_msg = self.browser.find_element(*ProductPageLocators.PROMO_MSG).text
+        #assert promo_msg == "Deferred benefit offer", "Promo is not possible" 
+        #assert promo_msg == '" Ваша корзина удовлетворяет условиям предложения "', "Promo is not possible"
+        assert 'корзина удовлетворяет' in promo_msg, "Promo is not possible"
