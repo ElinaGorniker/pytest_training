@@ -16,4 +16,7 @@ class ProductPage(BasePage):
         book_in_shop_name = self.browser.find_element(*ProductPageLocators.BOOK_NAME_IN_MSG).text
         book_in_basket_name = self.browser.find_element(*ProductPageLocators.BOOK_NAME_IN_SHOP).text
         assert book_in_shop_name == book_in_basket_name, "Book name is not equal"    
-        
+    def price_is_equal(self):
+        price_in_shop = self.browser.find_element(*ProductPageLocators.PRICE_IN_SHOP).text
+        price_in_msg = self.browser.find_element(*ProductPageLocators.PRICE_IN_MSG).text
+        assert price_in_shop == price_in_msg, "Price is not equal" 
