@@ -27,3 +27,10 @@ class ProductPage(BasePage):
         #assert promo_msg == "Deferred benefit offer", "Promo is not possible" 
         #assert promo_msg == '" Ваша корзина удовлетворяет условиям предложения "', "Promo is not possible"
         assert 'корзина удовлетворяет' in promo_msg, "Promo is not possible"
+    
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.MSG_ADD_TO_BASKET), "Success message is presented, but should not be"
+    
+    def should_dissapeared_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.MSG_ADD_TO_BASKET), "Success message is presented, but should be dissapeared"
+        
