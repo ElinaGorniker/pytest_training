@@ -3,19 +3,20 @@ from .pages.basket_page import BasketPage
 import time
 import pytest
 
-@pytest.mark.skip
-def test_guest_can_add_product_to_basket(browser):
-    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/coders-at-work_207/?promo=newYear2019"
-    page = ProductPage(browser, link)
-    page.open()
-    page.add_to_basket()    
-@pytest.mark.skip    
-def test_msg_add_to_basket_presented(browser):
-    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/coders-at-work_207/?promo=newYear2019"
-    page = ProductPage(browser, link)
-    page.open()
-    page.add_to_basket()    
-    page.msg_add_to_basket_presented()
+@pytest.mark.AddToBasketFromProductPage
+class TestUserAddToBasketFromProductPage():
+    def test_user_can_add_product_to_basket(browser):
+        link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/coders-at-work_207/?promo=newYear2019"
+        page = ProductPage(browser, link)
+        page.open()
+        page.add_to_basket()    
+   
+    def test_user_cant_see_success_message(browser):
+        link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/coders-at-work_207/?promo=newYear2019"
+        page = ProductPage(browser, link)
+        page.open()
+        page.add_to_basket()    
+        page.msg_add_to_basket_presented()
 
 @pytest.mark.skip
 def test_book_name_in_msg_is_equal(browser):
