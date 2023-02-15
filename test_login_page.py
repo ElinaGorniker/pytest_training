@@ -24,7 +24,7 @@ def test_register_form_is_correct(browser):
 def test_guest_register(browser):
     link = "http://selenium1py.pythonanywhere.com/en-gb/accounts/login/"
     page = LoginPage(browser, link)
-    page.open() * open page
+    page.open() # open page
     page.register_new_user()
     time.sleep(5)
     page.should_be_authorized_user()
